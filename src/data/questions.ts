@@ -30,13 +30,6 @@ export interface Question {
       ],
       journey: "all",
     },
-    {
-      id: "location",
-      section: "Section 1: Your Situation",
-      text: "Where are you looking for schools?",
-      type: "map",
-      journey: "all",
-    },
   
     // Section 2: Housing Requirements (Journey 2 only)
     {
