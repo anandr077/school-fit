@@ -9,6 +9,8 @@ import QuizQuestion from "./QuizQuestion";
 
 interface QuizProps {
   setQuizData: (data: any) => void
+  selectedSchool:string
+  setSelectedSchool:(selectedSchool:string) => void  
 }
 
 interface Answer {
@@ -17,7 +19,7 @@ interface Answer {
 }
 
 
-const Quiz: React.FC<QuizProps> = ({ setQuizData }) => {
+const Quiz: React.FC<QuizProps> = ({ setQuizData,selectedSchool,setSelectedSchool }) => {
   const navigate = useNavigate();
 
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -104,6 +106,30 @@ const Quiz: React.FC<QuizProps> = ({ setQuizData }) => {
         >
           {currentQuestion === filteredQuestions.length - 1 ? "Submit" : "Next"}
         </button>
+
+        {currentQuestion === filteredQuestions.length - 1 && (
+          <div className="mt-4">
+            <label className="block text-sm font-medium mb-2" htmlFor="selectedSchool">
+              Please select one school you are interested in below:
+            </label>
+            <select
+              id="selectedSchool"
+              name="selectedSchool"
+              className="block w-full px-3 py-2 text-base text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              value={selectedSchool}
+              onChange={(e) => handleAnswer("situation", e.target.value, 0.5)}
+            >
+              <option value="">Select one</option>
+              {["Barker College", "Northern Beaches Christian School", "Pittwater House"].map((school) => (
+                <option key={school} value={school}>
+                  {school}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+        
+
       </div>
     </div>
   )

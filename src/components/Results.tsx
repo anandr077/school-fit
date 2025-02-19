@@ -7,6 +7,7 @@ import { cn } from "../lib/utils"
 
 interface ResultsProps {
   quizData: any
+  selectedSchool:string
 }
 
 interface SchoolRecommendation {
@@ -15,11 +16,10 @@ interface SchoolRecommendation {
   justification: string
 }
 
-const Results: React.FC<ResultsProps> = ({ quizData }) => {
+const Results: React.FC<ResultsProps> = ({ quizData,selectedSchool }) => {
   const [recommendations, setRecommendations] = useState<SchoolRecommendation[]>([])
   const [loading, setLoading] = useState(true)
   const [retrying, setRetrying] = useState(false)
-  const [selectedSchool, setSelectedSchool] = useState<string | null>("Barker College")
   const navigate = useNavigate()
 
 
