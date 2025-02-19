@@ -76,7 +76,7 @@ const Results: React.FC<ResultsProps> = ({ quizData }) => {
       }).join("\n")
 
       const prompt = `
-      You are a school recommendation system. The user has provided specific criteria and weightage for selecting a ${schoolType} school in ${location.address}. Instead of searching for schools, your task is to justify why *Barker College* is the best match for the user’s preferences.
+      You are a school recommendation system. The user has provided specific criteria and weightage for selecting a ${schoolType} school }. Instead of searching for schools, your task is to justify why *Barker College* is the best match for the user’s preferences.
     
       SCHOOL REQUIREMENTS:
       - Type: ${schoolSector} school
