@@ -19,6 +19,7 @@ const Results: React.FC<ResultsProps> = ({ quizData }) => {
   const [recommendations, setRecommendations] = useState<SchoolRecommendation[]>([])
   const [loading, setLoading] = useState(true)
   const [retrying, setRetrying] = useState(false)
+  const [selectedSchool, setSelectedSchool] = useState<string | null>("Barker College")
   const navigate = useNavigate()
 
 
@@ -95,8 +96,7 @@ const Results: React.FC<ResultsProps> = ({ quizData }) => {
     
       {
         "recommendation": {
-          "name": "Barker College",
-          "url": "https://www.barker.college",
+          "name": "${selectedSchool}",
           "justification": "A compelling 100-word explanation of why Barker College is the best match based on user inputs."
         }
       }
